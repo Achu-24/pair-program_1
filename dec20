@@ -1,0 +1,10 @@
+def longest_equal_zeros_ones(arr):
+    mp = {0: -1}
+    s = ans = 0
+    for i, v in enumerate(arr):
+        s += -1 if v == 0 else 1
+        if s in mp:
+            ans = max(ans, i - mp[s])
+        else:
+            mp[s] = i
+    return ans
