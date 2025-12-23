@@ -1,0 +1,24 @@
+def combi(candidates):
+    candidates.sort()
+    sol=[]
+    def backtrack(index,res,total):
+        if total==target:
+            sol.append(res[:])
+            return
+        
+        if total>target:
+            return
+
+        for i in range(index,len(candidates)):
+            res.append(candidates[i])
+            backtrack(i,res,total+candidates[i])
+
+        res.pop()
+    backtrack(0,[],0)
+    sol.sort()
+    return sol
+
+
+candidates = list(map(int, input().split()))
+target=int(input())
+print(combi(candidates))
