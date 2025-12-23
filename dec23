@@ -1,0 +1,18 @@
+def sub(nums):
+    nums.sort()
+    sol=[]
+    def backtrack(index,res):
+        if index==len(nums):
+            sol.append(res[:])
+            return  
+        backtrack(index+1,res)
+        res.append(nums[index])
+        backtrack(index+1,res)
+        res.pop()
+
+    backtrack(0,[])
+    sol.sort()
+    return sol
+
+nums = list(map(int, input().split()))
+print(sub(nums))
