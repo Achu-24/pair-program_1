@@ -1,0 +1,23 @@
+def fr(fruit):
+    basket={}
+    left=0
+    max_fruit=0
+    for right in range(len(fruit)):
+        r=fruit[right]
+        if r in basket:
+            basket[r]+=1
+        else:
+            basket[r]-=1
+
+        while len(basket)>2:
+            l=fruit[left]
+            basket[l]-=1
+            if basket[l]==0:
+                del basket[l]
+            left+=1
+        max_fruit=max(max_fruit,right-left+1)
+    return max_fruit
+
+fruit=list(map(int,input().split()))
+o=fr(fruit)
+print(o)
