@@ -1,9 +1,7 @@
 def maxx(nums,k):
     left,max_len,zeros=0,0,0
-
     for right in range(len(nums)):
         if nums[right]==0:
-            zeros+=1 
         while zeros>k:
             if nums[left]==0:
                 zeros-=1
@@ -15,3 +13,4 @@ nums=list(map(int,input().split()))
 k=int(input())
 o=maxx(nums,k)
 print(o)
+
